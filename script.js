@@ -40,7 +40,10 @@ function assignHoverEffect() {
   const squares = document.querySelectorAll(".squareDiv");
   squares.forEach((squareHover) => {
     squareHover.addEventListener("mouseover", () => {
-      squareHover.style.backgroundColor = "black";
+      let r = Math.floor(Math.random() * 255 + 1);
+      let g = Math.floor(Math.random() * 255 + 1);
+      let b = Math.floor(Math.random() * 255 + 1);
+      squareHover.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     });
   });
 }
