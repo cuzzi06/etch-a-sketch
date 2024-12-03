@@ -4,6 +4,15 @@ const promptButton = document.querySelector("#promptButton");
 
 let numberGridSize;
 
+function adjustGridSize(numberGridSize) {
+  const squares = document.querySelectorAll(".squareDiv");
+  let getSquareSize = containerDiv.offsetWidth / numberGridSize;
+  squares.forEach((squareDiv) => {
+    squareDiv.style.width = `${getSquareSize}px`;
+    squareDiv.style.height = `${getSquareSize}px`;
+  });
+}
+
 promptButton.addEventListener("click", () => {
   numberGridSize = +prompt("Ingrese número de cuadrados por lado");
 
@@ -16,6 +25,7 @@ promptButton.addEventListener("click", () => {
         gridSquareDiv.setAttribute("class", "squareDiv");
         containerDiv.appendChild(gridSquareDiv);
       }
+      adjustGridSize(numberGridSize);
     }
 
     createGrid();
